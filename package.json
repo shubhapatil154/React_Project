@@ -11,8 +11,10 @@
     "font-awesome": "4.7.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-redux": "5.0.7",
     "react-router-dom": "4.2.2",
-    "react-scripts": "3.4.1"
+    "react-scripts": "3.4.1",
+    "redux": "3.7.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -22,7 +24,7 @@
   },
   "eslintConfig": {
     "extends": "react-app",
-    "parser":"babel-eslint"
+    "parser": "babel-eslint"
   },
   "browserslist": {
     "production": [
