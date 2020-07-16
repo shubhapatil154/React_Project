@@ -7,7 +7,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
         return (
             <Card>
                 <CardImg width="100%" src={dish.image} alt={dish.name} />
-                <CardBody>
+                <CardBody>.
                     <CardTitle>{dish.name}</CardTitle>
                     <CardText>{dish.description}</CardText>
                 </CardBody>
