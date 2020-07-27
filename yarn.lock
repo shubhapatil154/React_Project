@@ -4163,6 +4163,7 @@ __metadata:
     babel-eslint: ^10.1.0
     bootstrap: ^4.0.0
     bootstrap-social: 5.1.1
+    cross-fetch: 2.1.0
     font-awesome: 4.7.0
     react: ^16.13.1
     react-dom: ^16.13.1
@@ -4173,6 +4174,8 @@ __metadata:
     react-scripts: 3.4.1
     reactstrap: ^5.0.0
     redux: 3.7.2
+    redux-logger: 3.0.6
+    redux-thunk: 2.2.0
   languageName: unknown
   linkType: soft
 
@@ -4375,6 +4378,16 @@ __metadata:
     safe-buffer: ^5.0.1
     sha.js: ^2.4.8
   checksum: 98957676a93081678a2a915ae14898d65aac9b5651ffa55b8888484dd9d79c06d3cb3f85b137cd833ab536d87adee17394bb2b0efc591ea0e34110266d5bcd75
+  languageName: node
+  linkType: hard
+
+"cross-fetch@npm:2.1.0":
+  version: 2.1.0
+  resolution: "cross-fetch@npm:2.1.0"
+  dependencies:
+    node-fetch: 2.1.1
+    whatwg-fetch: 2.0.3
+  checksum: cf1b37b5e108656f7fcd2031fd59feb1f146937dea14f58870d6e400dac25967643c5c6395716cceabe4503d6e967a6e4a9e567f49bfba21b92d5ac810ca875b
   languageName: node
   linkType: hard
 
@@ -4802,6 +4815,13 @@ __metadata:
   version: 0.2.0
   resolution: "decode-uri-component@npm:0.2.0"
   checksum: d8cb28c33f7b0a70b159b5fa126aee821ba090396689bd46ad2c423c3a658c504d2743ab18060fd5ed1cae5377bdd3632760a8e98ba920ff49637d43dc6a9687
+  languageName: node
+  linkType: hard
+
+"deep-diff@npm:^0.3.5":
+  version: 0.3.8
+  resolution: "deep-diff@npm:0.3.8"
+  checksum: debaca1f9513b9c4dc64dbbcb23b6bc697e8dfa8e1cac8169542676408bfb803078255f82cc51c973cf1f0e18332f06c056c9dc5eab1cf777086e38930e597c1
   languageName: node
   linkType: hard
 
@@ -9353,6 +9373,13 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"node-fetch@npm:2.1.1":
+  version: 2.1.1
+  resolution: "node-fetch@npm:2.1.1"
+  checksum: 2e9fea5dd6759e536b9037b7b609c52a97357378b669351b1b8020283ddb2b983c42d0f34524c4e634f5009ff708a802fbf66e774080dff816725bed458ba403
+  languageName: node
+  linkType: hard
+
 "node-forge@npm:0.9.0":
   version: 0.9.0
   resolution: "node-forge@npm:0.9.0"
@@ -11880,6 +11907,22 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"redux-logger@npm:3.0.6":
+  version: 3.0.6
+  resolution: "redux-logger@npm:3.0.6"
+  dependencies:
+    deep-diff: ^0.3.5
+  checksum: cc54fe7def447262864badc7703a2a978cf25085f123a144c0032f97947c36c4da452d7cdcece54179913091ffe2b991e1103c37eec4a1283d17044878ae74a3
+  languageName: node
+  linkType: hard
+
+"redux-thunk@npm:2.2.0":
+  version: 2.2.0
+  resolution: "redux-thunk@npm:2.2.0"
+  checksum: 8f73b50e85dd283d094e8bbdd5b9f0da34ebb280207a555495742a7e123b3b6ec66e4c6aef5642c61afde766db2ce65b3c35532daceaaf541a9a8deaa24aec3a
+  languageName: node
+  linkType: hard
+
 "redux@npm:3.7.2":
   version: 3.7.2
   resolution: "redux@npm:3.7.2"
@@ -14313,6 +14356,13 @@ resolve@1.1.7:
   dependencies:
     iconv-lite: 0.4.24
   checksum: 44e4276ad2c770d1eb8c5a49294b863c581ef4bc78a10ac6a73a7eba00b377bc53ae0501d7ffce29a2c051b6af5ebbbd135f1da7d8eb98097af2cf12f7b2c984
+  languageName: node
+  linkType: hard
+
+"whatwg-fetch@npm:2.0.3":
+  version: 2.0.3
+  resolution: "whatwg-fetch@npm:2.0.3"
+  checksum: f4b94199f8d18c19f9034ad45a4568f34d6e7db79754b7648b4aca971a2ee94a300a43a8f336208b012c868b6910764109f7dde2d6fd8ed7c589e0ec251f516c
   languageName: node
   linkType: hard
 
