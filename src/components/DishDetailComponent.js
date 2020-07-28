@@ -5,7 +5,7 @@ import { Control, LocalForm, Errors } from 'react-redux-form';
 import { Loading } from './LoadingComponent';
 import { baseUrl } from '../shared/baseUrl';
 
-function RenderDish({dish}) {
+function RenderDish({ dish }) {
     return (
         <Card>
             <CardImg width="100%" src={baseUrl + dish.image} alt={dish.name} />
@@ -17,7 +17,7 @@ function RenderDish({dish}) {
     );
 }
 
-function RenderComments({comments, addComment, dishId}) {
+function RenderComments({ comments, postComment, dishId }) {
     var commentList = comments.map(comment => {
         return (
             <li key={comment.id} >
@@ -35,7 +35,7 @@ function RenderComments({comments, addComment, dishId}) {
             <ul className="list-unstyled">
                 {commentList}
             </ul>
-            <CommentForm dishId={dishId} addComment={addComment} />
+            <CommentForm dishId={dishId} postComment={postComment} />
         </div>
     );
 }
@@ -59,7 +59,7 @@ const DishDetail = props => {
             </div>
         );
     }
-    else if (props.dish != null) {
+    else if (props.dish) {
         return (
             <div className="container">
                 <div className="row">
@@ -77,9 +77,7 @@ const DishDetail = props => {
                         <RenderDish dish={props.dish} />
                     </div>
                     <div className="col-12 col-md-5 m-1">
-                        <RenderComments comments={props.comments} 
-                            addComment={props.addComment} 
-                            dishId={props.dish.id} />
+                        <RenderComments comments={props.comments} postComment={props.postComment} dishId={props.dish.id} />
                     </div>
                 </div>
             </div>
@@ -101,7 +99,7 @@ const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
 
 export class CommentForm extends Component {
-    constructor(props){
+    constructor(props) {
         super(props)
 
         this.state = {
@@ -116,18 +114,19 @@ export class CommentForm extends Component {
         this.setState({ isModalOpen: !this.state.isModalOpen });
     }
 
-    handleSubmit(values){
+    handleSubmit(values) {
         this.toggleModal();
-        this.props.addComment(this.props.dishId,values.rating, values.author, values.comment);
+
+        this.props.postComment(this.props.dishId, values.rating, values.author, values.comment);
     }
 
+    
     render() {
         return (
             <div>
                 <Button outline onClick={this.toggleModal}>
                     <span className="fa fa-pencil fa-lg"> Submit comment</span>
                 </Button>
-
                 <div className="row row-content">
                     <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                         <ModalHeader toggle={this.toggleModal}> Submit comment</ModalHeader>
@@ -148,26 +147,26 @@ export class CommentForm extends Component {
                                             </Control.select>
                                         </Col>
                                     </Row>
+
                                     <Row className="form-group">
                                         <div className="col-12">
                                             <Label htmlFor="author">Your name</Label>
                                         </div>
                                         <Col>
-                                            <Control.text model=".author" id="author" name="author" placeholder="Author" className="form-control" validators={{ required, minLength:  minLength(3), maxLength: maxLength(15)}} />
-                                            <Errors className="text-danger" model=".author" show="touched" messages={{ required: 'Required', minLength: 'Must be greater than 3 characters', maxLength: 'Must be 15 charaters or less'}} />
+                                            <Control.text model=".author" id="author" name="author" placeholder="Author" className="form-control" validators={{ required, minLength: minLength(3), maxLength: maxLength(15) }} />
+                                            <Errors className="text-danger" model=".author" show="touched" messages={{ required: 'Required', minLength: 'Must be greater than 3 characters', maxLength: 'Must be 15 charaters or less' }} />
                                         </Col>
                                     </Row>
 
                                     <Row className="form-group">
-                                    <div className="col-12">
-                                        <Label htmlFor="feedback">Your feedback</Label>
-                                    </div>
+                                        <div className="col-12">
+                                            <Label htmlFor="feedback">Your feedback</Label>
+                                        </div>
                                         <Col>
-                                            <Control.textarea model=".message" id="message" name="message" rows="6" className="form-control" validators={{ required }} />
-                                            <Errors className="text-danger" model=".message" show="touched" messages={{ required: 'Required'}} />
+                                            <Control.textarea model=".comment" id="comment" name="comment" rows="6" className="form-control" validators={{ required }} />
+                                            <Errors className="text-danger" model=".comment" show="touched" messages={{ required: 'Required' }} />
                                         </Col>
                                     </Row>
-
                                     <Button type="submit" value="submit" color="primary">Submit</Button>
                                 </LocalForm>
                             </div>
@@ -178,3 +177,4 @@ export class CommentForm extends Component {
         );
     }
 }
+    
